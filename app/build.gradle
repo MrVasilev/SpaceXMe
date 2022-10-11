@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
@@ -19,6 +18,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -32,7 +35,7 @@ android {
         production {
             dimension "environment"
 
-            buildConfigField "String", "BASE_URL", '"https://api.spacexdata.com"'
+            buildConfigField "String", "BASE_URL", '"https://api.spacexdata.com/"'
         }
         staging {
             dimension "environment"
@@ -40,7 +43,7 @@ android {
             applicationIdSuffix '.' + name
             versionName APP_VERSION_NAME + '-' + name
 
-            buildConfigField "String", "BASE_URL", '"https://api.spacexdata.com"'
+            buildConfigField "String", "BASE_URL", '"https://api.spacexdata.com/"'
         }
     }
 
@@ -61,6 +64,10 @@ dependencies {
     implementation libraries.material
     implementation libraries.constraintlayout
 
+    // Coroutines
+    implementation libraries.coroutinesCore
+    implementation libraries.coroutinesAndroid
+
     // Hilt
     implementation libraries.hilt
     kapt libraries.hiltAndroidCompiler
@@ -70,6 +77,8 @@ dependencies {
     implementation libraries.retrofitMoshi
     implementation libraries.okhttp
     implementation libraries.okhttpLogging
+    implementation libraries.moshi
+    kapt libraries.moshiKapt
 
     // Testing
     testImplementation libraries.junit
