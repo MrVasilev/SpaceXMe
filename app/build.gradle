@@ -70,6 +70,7 @@ dependencies {
 
     // Hilt
     implementation libraries.hilt
+    testImplementation 'junit:junit:4.12'
     kapt libraries.hiltAndroidCompiler
 
     // Retrofit
@@ -82,6 +83,10 @@ dependencies {
 
     // Testing
     testImplementation libraries.junit
+    testImplementation libraries.mockitoCore
+    testImplementation libraries.mockitoInline
+    testImplementation libraries.mockitoKotlin
+    testImplementation libraries.kotlinxCoroutinesTest
     androidTestImplementation libraries.androidxJunit
     androidTestImplementation libraries.espressoCore
 }
