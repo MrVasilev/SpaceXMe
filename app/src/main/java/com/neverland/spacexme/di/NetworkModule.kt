@@ -1,10 +1,12 @@
 package com.neverland.spacexme.di
 
 import com.neverland.spacexme.BuildConfig
+import com.neverland.spacexme.data.CompanyInfoService
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,16 +15,26 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.BASE_URL)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .client(okHttpClient)
-        .build()
+    fun provideCompanyInfoService(retrofit: Retrofit): CompanyInfoService =
+        retrofit.create(CompanyInfoService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideRetrofitInstance(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit =
+        Retrofit.Builder()
+            .baseUrl(BuildConfig.BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .client(okHttpClient)
+            .build()
+
+    @Provides
+    @Singleton
+    fun provideMoshi(): Moshi = Moshi.Builder().build()
 
     @Provides
     @Singleton
