@@ -1,12 +1,11 @@
 package com.neverland.spacexme.ui.welcome.mapper
 
-import android.content.res.Resources
 import com.neverland.spacexme.R
 import com.neverland.spacexme.domain.model.CompanyInfo
 import com.neverland.spacexme.ui.welcome.model.CompanyInfoUiModel
 import javax.inject.Inject
 
-class CompanyInfoMapper @Inject constructor(private val resources: Resources) {
+class CompanyInfoMapper @Inject constructor() {
 
     fun mapToCompanyInfoUiModel(companyInfo: CompanyInfo): CompanyInfoUiModel = CompanyInfoUiModel(
         name = companyInfo.name,

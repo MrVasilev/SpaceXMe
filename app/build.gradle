@@ -82,6 +82,9 @@ dependencies {
 
     // Testing
     testImplementation libraries.junit
+    testImplementation libraries.mockitoInline
+    testImplementation libraries.mockitoKotlin
+    testImplementation libraries.kotlinxCoroutinesTest
     androidTestImplementation libraries.androidxJunit
     androidTestImplementation libraries.espressoCore
 }
