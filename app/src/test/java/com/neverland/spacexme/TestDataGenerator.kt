@@ -6,6 +6,7 @@ import com.neverland.spacexme.data.model.LinksResponse
 import com.neverland.spacexme.domain.model.CompanyInfo
 import com.neverland.spacexme.domain.model.Headquarter
 import com.neverland.spacexme.domain.model.Links
+import com.neverland.spacexme.ui.welcome.model.CompanyInfoUiModel
 
 object TestDataGenerator {
 
@@ -76,5 +77,21 @@ object TestDataGenerator {
             twitter = "",
             ceoTwitter = ""
         )
+    )
+
+    fun generateCompanyInfoUiModel() = CompanyInfoUiModel(
+        name = "SpaceX",
+        headerImage = R.drawable.ic_spacex_logo,
+        founder = "Elon Musk",
+        foundedYear = "2002",
+        employeesNumber = "9500",
+        ceo = "Elon Musk",
+        ceoImage = R.drawable.ic_launcher_foreground,
+        coo = "Gwynne Shotwell",
+        cooImage = R.drawable.ic_launcher_foreground,
+        cto = "Elon Musk",
+        ctoImage = R.drawable.ic_launcher_foreground,
+        valuation = "74000000000",
+        summary = "SpaceX designs, manufactures and launches"
     )
 }

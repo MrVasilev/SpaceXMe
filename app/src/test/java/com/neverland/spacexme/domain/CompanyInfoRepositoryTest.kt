@@ -6,6 +6,7 @@ import com.neverland.spacexme.data.CompanyInfoService
 import com.neverland.spacexme.data.model.CompanyInfoResponse
 import com.neverland.spacexme.domain.mapper.CompanyInfoResponseMapper
 import com.neverland.spacexme.domain.model.CompanyInfo
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -25,6 +26,7 @@ class CompanyInfoRepositoryTest {
         tested = CompanyInfoRepository(companyInfoService, companyInfoResponseMapper)
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun `getCompanyInfo service call success`() = runTest {
         // given

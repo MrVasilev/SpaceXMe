@@ -1,6 +1,5 @@
 package com.neverland.spacexme.ui.welcome
 
-import android.util.Log
 import com.neverland.spacexme.domain.CompanyInfoRepository
 import com.neverland.spacexme.mpv.MvpPresenter
 import com.neverland.spacexme.ui.welcome.mapper.CompanyInfoMapper
@@ -12,6 +11,10 @@ class WelcomePresenter @Inject constructor(
 ) : MvpPresenter<WelcomeContract.View>(), WelcomeContract.Presenter {
 
     override fun init() {
+        loadCompanyInfo()
+    }
+
+    private fun loadCompanyInfo() {
         applyOnView { showProgress() }
 
         launch {
@@ -23,10 +26,7 @@ class WelcomePresenter @Inject constructor(
                         showCompanyInfo(uiModel)
                     }
                 }
-                .onFailure { throwable ->
-                    applyOnView { hideProgress() }
-                    Log.println(Log.DEBUG, "ERROR", throwable.message.orEmpty())
-                }
+                .onFailure { applyOnView { hideProgress() } }
         }
     }
 }
