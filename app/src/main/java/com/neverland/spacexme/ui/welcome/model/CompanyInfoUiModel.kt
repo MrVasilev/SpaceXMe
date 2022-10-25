@@ -9,6 +9,12 @@ data class CompanyInfoUiModel(
     val founder: String,
     val foundedYear: String,
     val employeesNumber: String,
+    val valuation: String,
+    val summary: String,
+    val cLevelUiModel: CLevelUiModel
+)
+
+data class CLevelUiModel(
     val ceo: String,
     @DrawableRes
     val ceoImage: Int,
@@ -17,7 +23,5 @@ data class CompanyInfoUiModel(
     val ctoImage: Int,
     val coo: String,
     @DrawableRes
-    val cooImage: Int,
-    val valuation: String,
-    val summary: String
+    val cooImage: Int
 )

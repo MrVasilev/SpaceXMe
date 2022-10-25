@@ -24,6 +24,7 @@ class WelcomePresenter @Inject constructor(
                     applyOnView {
                         hideProgress()
                         showCompanyInfo(uiModel)
+                        showCompanyCLevelInfo(uiModel.cLevelUiModel)
                     }
                 }
                 .onFailure { applyOnView { hideProgress() } }

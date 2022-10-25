@@ -6,6 +6,7 @@ import com.neverland.spacexme.data.model.LinksResponse
 import com.neverland.spacexme.domain.model.CompanyInfo
 import com.neverland.spacexme.domain.model.Headquarter
 import com.neverland.spacexme.domain.model.Links
+import com.neverland.spacexme.ui.welcome.model.CLevelUiModel
 import com.neverland.spacexme.ui.welcome.model.CompanyInfoUiModel
 
 object TestDataGenerator {
@@ -30,6 +31,29 @@ object TestDataGenerator {
             flickr = "https://www.flickr.com/photos/spacex/",
             twitter = "https://twitter.com/SpaceX",
             ceoTwitter = "https://twitter.com/elonmusk"
+        )
+    )
+
+    fun generateCompanyInfoResponseEmpty() = CompanyInfoResponse(
+        name = "",
+        founder = "",
+        foundedYear = "",
+        employeesNumber = "",
+        ceo = "",
+        cto = "",
+        coo = "",
+        valuation = "",
+        summary = "",
+        headquarter = HeadquarterResponse(
+            address = "",
+            city = "",
+            state = ""
+        ),
+        links = LinksResponse(
+            website = "",
+            flickr = "",
+            twitter = "",
+            ceoTwitter = ""
         )
     )
 
@@ -85,13 +109,15 @@ object TestDataGenerator {
         founder = "Elon Musk",
         foundedYear = "2002",
         employeesNumber = "9500",
-        ceo = "Elon Musk",
-        ceoImage = R.drawable.ic_launcher_foreground,
-        coo = "Gwynne Shotwell",
-        cooImage = R.drawable.ic_launcher_foreground,
-        cto = "Elon Musk",
-        ctoImage = R.drawable.ic_launcher_foreground,
         valuation = "74000000000",
-        summary = "SpaceX designs, manufactures and launches"
+        summary = "SpaceX designs, manufactures and launches",
+        cLevelUiModel = CLevelUiModel(
+            ceo = "Elon Musk",
+            ceoImage = R.drawable.img_elon_musk,
+            coo = "Gwynne Shotwell",
+            cooImage = R.drawable.img_gwynne_shotwell,
+            cto = "Elon Musk",
+            ctoImage = R.drawable.img_tom_mueller,
+        )
     )
 }

@@ -10,36 +10,131 @@
 
         <ImageView
             android:id="@+id/iv_header_image"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toTopOf="@id/guidelineTop"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            android:textSize="42sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_42"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@+id/iv_header_image"
             tools:text="Space X" />
 
         <TextView
             android:id="@+id/tv_summary"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/dimen_16"
+            android:textSize="@dimen/text_size_16"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="SpaceX designs, manufactures and launches advanced rockets and spacecraft." />
+
+        <TextView
+            android:id="@+id/tv_employees_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_32"
+            android:text="@string/welcome_employees_title_text"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/tv_summary" />
+
+        <TextView
+            android:id="@+id/tv_valuation_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dimen_32"
+            android:text="@string/welcome_valuation_title_text"
+            android:textSize="@dimen/text_size_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
+            app:layout_constraintTop_toBottomOf="@+id/tv_summary" />
+
+        <TextView
+            android:id="@+id/tv_employees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8"
+            app:layout_constraintEnd_toEndOf="@+id/tv_employees_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_employees_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_employees_title"
+            tools:text="50000" />
+
+        <TextView
+            android:id="@+id/tv_valuation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8"
+            app:layout_constraintEnd_toEndOf="@+id/tv_valuation_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_valuation_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_valuation_title"
+            tools:text="10000000" />
+
+        <com.neverland.spacexme.ui.components.ImageTitleSubtitleView
+            android:id="@+id/itv_ceo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_32"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_16"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continue"
+            app:layout_constraintEnd_toStartOf="@+id/itv_coo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/tv_employees"
+            app:title="@string/ceo_title_text"
+            tools:image="@drawable/img_elon_musk"
+            tools:subtitle="Elon Musk" />
+
+        <com.neverland.spacexme.ui.components.ImageTitleSubtitleView
+            android:id="@+id/itv_coo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/dimen_16"
+            app:layout_constraintBottom_toBottomOf="@+id/itv_ceo"
+            app:layout_constraintEnd_toStartOf="@+id/itv_cto"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/itv_ceo"
+            app:layout_constraintTop_toTopOf="@+id/itv_ceo"
+            app:title="@string/coo_title_text"
+            tools:image="@drawable/img_gwynne_shotwell"
+            tools:subtitle="Gwynne Shotwell" />
+
+        <com.neverland.spacexme.ui.components.ImageTitleSubtitleView
+            android:id="@+id/itv_cto"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/itv_coo"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/itv_coo"
+            app:layout_constraintTop_toTopOf="@+id/itv_coo"
+            app:title="@string/cto_title_text"
+            tools:image="@drawable/img_tom_mueller"
+            tools:subtitle="Tom Muller" />
+
+        <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_button_text"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -51,5 +146,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/dimen_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/dimen_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/dimen_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/dimen_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

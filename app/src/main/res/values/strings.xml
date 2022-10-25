@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SpaceXMe</string>
+
+    <string name="welcome_button_text">Let\'s the Journey Begin</string>
+    <string name="welcome_employees_title_text">Employees</string>
+    <string name="welcome_valuation_title_text">Valuation</string>
+    <string name="ceo_title_text">CEO</string>
+    <string name="coo_title_text">COO</string>
+    <string name="cto_title_text">CTO</string>
 </resources>
