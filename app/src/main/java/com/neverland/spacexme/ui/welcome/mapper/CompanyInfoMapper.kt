@@ -2,6 +2,7 @@ package com.neverland.spacexme.ui.welcome.mapper
 
 import com.neverland.spacexme.R
 import com.neverland.spacexme.domain.model.CompanyInfo
+import com.neverland.spacexme.ui.welcome.model.CLevelUiModel
 import com.neverland.spacexme.ui.welcome.model.CompanyInfoUiModel
 import javax.inject.Inject
 
@@ -13,13 +14,18 @@ class CompanyInfoMapper @Inject constructor() {
         founder = companyInfo.founder,
         foundedYear = companyInfo.foundedYear,
         employeesNumber = companyInfo.employeesNumber,
-        ceo = companyInfo.ceo,
-        ceoImage = R.drawable.ic_launcher_foreground,
-        coo = companyInfo.coo,
-        cooImage = R.drawable.ic_launcher_foreground,
-        cto = companyInfo.cto,
-        ctoImage = R.drawable.ic_launcher_foreground,
         valuation = companyInfo.valuation,
-        summary = companyInfo.summary
+        summary = companyInfo.summary,
+        cLevelUiModel = mapToCompanyCLevelInfo(companyInfo)
     )
+
+    private fun mapToCompanyCLevelInfo(companyInfo: CompanyInfo): CLevelUiModel =
+        CLevelUiModel(
+            ceo = companyInfo.ceo,
+            ceoImage = R.drawable.img_elon_musk,
+            coo = companyInfo.coo,
+            cooImage = R.drawable.img_gwynne_shotwell,
+            cto = companyInfo.cto,
+            ctoImage = R.drawable.img_tom_mueller
+        )
 }

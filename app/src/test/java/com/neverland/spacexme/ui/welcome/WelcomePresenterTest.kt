@@ -54,6 +54,7 @@ class WelcomePresenterTest {
             verify(companyInfoMapper).mapToCompanyInfoUiModel(companyInfo)
             verify(view).hideProgress()
             verify(view).showCompanyInfo(uiModel)
+            verify(view).showCompanyCLevelInfo(uiModel.cLevelUiModel)
             verifyNoMoreInteractions()
         }
     }
